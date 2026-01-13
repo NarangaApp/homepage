@@ -1,0 +1,7 @@
+{
+  "name": "Nexus Global Tech Landing Page",
+  "description": "A sophisticated corporate landing page featuring a sticky service navigator, horizontal award scroll, and comprehensive company sections.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
