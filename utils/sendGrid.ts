@@ -37,12 +37,24 @@ export async function sendContactMail(payload: ContactPayload) {
     throw new Error('Name, email, and message are required to send a contact email.');
   }
 
+  const normalizeNewlines = (value: string) => value.replace(/\r\n/g, '\n').trim();
+  const escapeHtml = (value: string) =>
+    value
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+
+  const normalizedMessage = normalizeNewlines(message);
+  const htmlMessage = escapeHtml(normalizedMessage).replace(/\n/g, '<br />');
+
   return sgMail.send({
     to: toEmail,
     from: fromEmail,
     replyTo: email,
     subject: `[문의] ${name}님으로부터 도착`,
-    text: `${message}\n\n발신자: ${email}`,
-    html: `<p>${message}</p><p>발신자: ${email}</p>`,
+    text: `${normalizedMessage}\n\n발신자: ${email}`,
+    html: `<p>${htmlMessage}</p><p>발신자: ${escapeHtml(email)}</p>`,
   });
 }
