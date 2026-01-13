@@ -62,7 +62,7 @@ const ProductPageView: React.FC<ProductPageViewProps> = ({ serviceId }) => {
         ) : isAI ? (
           <>
             <iframe
-              src="https://my.spline.design/jennyai-1h6XRgg7b7jYAtbz53uIaamP/"
+              src="https://my.spline.design/jennyai-yodEOwi9qXgXUTaaNCUImaCt/"
               title="Naranga AI 3D"
               className="absolute inset-0 w-full h-full"
               frameBorder="0"
