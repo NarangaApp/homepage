@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
             // src="https://my.spline.design/interactive3dparallaxscene-4a15by3SAzPB979ldns3quOJ/"
             title="Naranga Hero"
             className="absolute inset-0 w-full h-full"
-            style={{ transform: 'scale(1.12) translate(3%, 2%)', transformOrigin: 'center' }}
+            style={{ transformOrigin: 'center' }}
             frameBorder="0"
             allowFullScreen
           />
