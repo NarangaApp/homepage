@@ -13,29 +13,29 @@ const CERTIFICATIONS = [
 ];
 
 const AWARD_PORTFOLIO = [
+  // {
+  //   id: 'AWARD-01',
+  //   title: '방송통신대학 비즈니스모델 경진대회 대상',
+  //   category: 'Grand Prize',
+  //   issuer: '한국방송통신대학교',
+  //   imageUrl: '/images/award-broadcasting-model.png'
+  // },
   {
     id: 'AWARD-01',
-    title: '방송통신대학 비즈니스모델 경진대회 대상',
-    category: 'Grand Prize',
-    issuer: '한국방송통신대학교',
-    imageUrl: '/images/award-broadcasting-model.png'
-  },
-  {
-    id: 'AWARD-02',
-    title: '부울경 창업아이디어 경진대회 최우수상',
+    title: '부울경 ICT 경진대회 최우수상',
     category: 'Top Excellence',
     issuer: '부울경 창업협력협의체',
     imageUrl: '/images/award-buulgyeong-idea.png'
   },
   {
-    id: 'AWARD-03',
+    id: 'AWARD-02',
     title: '울산 중구 창업아이디어 경진대회 최우수상',
     category: 'Top Excellence',
     issuer: '울산광역시 중구청',
     imageUrl: '/images/award-ulsan-junggu-idea.png'
   },
   {
-    id: 'AWARD-04',
+    id: 'AWARD-03',
     title: '울산 북구 창업아이디어 경진대회 성인부 최우수상',
     category: 'Top Excellence',
     issuer: '울산광역시 북구청',
