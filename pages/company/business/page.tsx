@@ -15,26 +15,24 @@ const BusinessRoutePage: React.FC = () => {
             <span className="text-[#0066ff]">새로운 질서를 설계합니다</span>
           </h1>
           <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-            데이터 수집부터 지능형 분석까지, 나랑가는 하드웨어와 소프트웨어를 아우르는 통합 솔루션으로 에너지의 가치를 재정의합니다.
+            나랑가는 전기차 배터리 데이터를 중심으로<br />
+            수집–분석–예측–운영까지 연결하는 통합 AI 기술 기업입니다.
           </p>
         </div>
       </section>
 
       {/* 2. Enhanced Business Value Chain: Data Pipeline Logic */}
       <section className="py-32 relative overflow-hidden">
-        {/* Background Decorative Line (Desktop) */}
-        <div className="absolute top-1/2 left-0 w-full h-px bg-gray-100 -translate-y-1/2 hidden lg:block" />
-        
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">The Intelligence Pipeline</h2>
             <p className="text-gray-400 text-sm font-bold mt-2">데이터가 가치로 변하는 나랑가만의 독자적 프로세스</p>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-4">
+          <div className="flex flex-col items-center gap-12 lg:grid lg:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)_140px_minmax(0,1fr)] lg:items-center lg:gap-6">
             
             {/* Step 1: Data Acquisition */}
-            <div className="w-full lg:w-1/3 max-w-sm">
+            <div className="w-full max-w-sm mx-auto">
               <div className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-xl shadow-gray-100/50 relative group hover:border-blue-200 transition-all text-center">
                 <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-8 text-[#0066ff] relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#0066ff]/5 animate-ping opacity-20" />
@@ -47,26 +45,46 @@ const BusinessRoutePage: React.FC = () => {
                   <h3 className="text-2xl font-black text-gray-900">Precision Data</h3>
                 </div>
                 <p className="text-gray-500 text-sm font-medium leading-relaxed">
-                  엣지 디바이스를 통한 초정밀 배터리<br />데이터의 실시간 수집 및 전송
+                  - 엣지 디바이스 기반 초정밀 배터리 데이터 수집<br />
+                  - 전압, 전류, SOC, 온도, 운행 패턴 실시간 수집<br />
+                  - 노이즈 제거 및 신뢰도 검증을 거친<br />고품질 원천 데이터 확보
                 </p>
               </div>
             </div>
 
-            {/* Central Connector: AI Engine Pulse */}
-            <div className="w-full lg:w-auto flex flex-col items-center justify-center py-4 lg:px-8">
-              <div className="w-px h-12 lg:w-32 lg:h-px bg-gradient-to-b lg:bg-gradient-to-r from-gray-200 via-[#0066ff] to-[#0066ff] relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full animate-pipeline-flow bg-white/50" />
-              </div>
-              <div className="my-4 px-5 py-2 bg-[#0066ff] rounded-full shadow-lg shadow-blue-200">
-                <span className="text-white text-[10px] font-black uppercase tracking-widest">Naranga AI Engine</span>
-              </div>
-              <div className="w-px h-12 lg:w-32 lg:h-px bg-gradient-to-b lg:bg-gradient-to-r from-[#0066ff] via-[#0066ff] to-blue-900 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-full h-full animate-pipeline-flow bg-white/50" />
+            {/* Connector */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="h-0.5 w-full max-w-[140px] bg-gradient-to-r from-blue-100 via-blue-300 to-blue-200" />
+            </div>
+
+            {/* Center: Naranga AI Engine */}
+            <div className="w-full max-w-sm mx-auto">
+              <div className="bg-[#eaf2ff] p-10 rounded-[3rem] border border-blue-100 shadow-xl shadow-blue-100/40 relative group hover:border-blue-200 transition-all text-center">
+                <div className="w-16 h-16 bg-white/70 rounded-2xl flex items-center justify-center mx-auto mb-8 text-[#0066ff] relative overflow-hidden">
+                  <div className="absolute inset-0 bg-[#0066ff]/5 animate-ping opacity-20" />
+                  <svg className="w-8 h-8 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9.75 17L9 20l3-1 3 1-.75-3m-4.5-6h4.5m-4.5 0a2.25 2.25 0 01-2.25-2.25V6.75A2.25 2.25 0 019.75 4.5h4.5A2.25 2.25 0 0116.5 6.75v2.25A2.25 2.25 0 0114.25 11m-4.5 0h4.5" />
+                  </svg>
+                </div>
+                <div className="mb-4">
+                  <span className="text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] block mb-2">Core Engine</span>
+                  <h3 className="text-2xl font-black text-gray-900">Naranga AI Engine</h3>
+                </div>
+                <p className="text-gray-500 text-sm font-medium leading-relaxed">
+                  - 시계열 기반 배터리 상태 학습<br />
+                  - 이상 패턴 자동 인식 및 열화 진행 추적<br />
+                  - 물리 모델과 AI 결합 구조를 통한 예측 신뢰성 확보
+                </p>
               </div>
             </div>
 
+            {/* Connector */}
+            <div className="hidden lg:flex items-center justify-center">
+              <div className="h-0.5 w-full max-w-[140px] bg-gradient-to-r from-blue-100 via-blue-300 to-blue-200" />
+            </div>
+
             {/* Step 2: Intelligent Insight */}
-            <div className="w-full lg:w-1/3 max-w-sm">
+            <div className="w-full max-w-sm mx-auto">
               <div className="bg-[#0066ff] p-10 rounded-[3rem] shadow-2xl shadow-blue-200 relative group text-center overflow-hidden">
                 {/* Decorative Pattern inside card */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-10 -mt-10" />
@@ -81,7 +99,9 @@ const BusinessRoutePage: React.FC = () => {
                   <h3 className="text-2xl font-black text-white">Actionable Insight</h3>
                 </div>
                 <p className="text-blue-100 text-sm font-medium leading-relaxed">
-                  자체 배터리 AI 엔진을 통해 도출된<br />정밀한 수명 예측 및 사고 예방 가치
+                  - 배터리 상태(SOH) 정밀 산출<br />
+                  - 고장 및 성능 저하 사전 경고<br />
+                  - 교체·정비·운영 의사결정에 바로 활용 가능한<br />인사이트 제공
                 </p>
               </div>
             </div>
@@ -110,10 +130,10 @@ const BusinessRoutePage: React.FC = () => {
               </div>
 
               <div className="lg:w-1/2 w-full">
-                <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight">
+                <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight whitespace-pre-line">
                   {service.description}
                 </h2>
-                <p className="text-gray-500 text-lg md:text-xl font-medium leading-relaxed mb-10">
+                <p className="text-gray-500 text-lg md:text-xl font-medium leading-relaxed mb-10 whitespace-pre-line">
                   {service.longDescription}
                 </p>
                 
@@ -144,15 +164,15 @@ const BusinessRoutePage: React.FC = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-24">
              <h3 className="text-3xl md:text-5xl font-black text-white mb-6">Future Technology Roadmap</h3>
-             <p className="text-slate-400 font-medium">나랑가는 단순한 분석을 넘어, 자율 주행과 스마트 시티의 에너지 허브를 꿈꿉니다.</p>
+             <p className="text-slate-400 font-medium">나랑가는 단순 진단을 넘어, 전기차와 에너지 인프라를 연결하는 지능형 데이터 허브를 지향합니다.</p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
-              { year: '2024', goal: 'Predictive SOH Engine v3.0', status: 'Completed' },
-              { year: '2025', goal: 'Global Cloud BaaS Platform', status: 'In Progress' },
-              { year: '2026', goal: 'Edge-AI Distributed Network', status: 'Planned' },
-              { year: '2027', goal: 'Self-Healing Battery Arch.', status: 'Vision' }
+              { year: '2024', goal: 'Predictive SOH Engine v3.0', status: '배터리 상태·수명 예측 엔진 고도화 완료' },
+              { year: '2025', goal: 'Global Cloud BaaS Platform', status: '다차량 운영 법인 대상 글로벌 클라우드 플랫폼 확장' },
+              { year: '2026', goal: 'Edge-AI Distributed Network', status: '엣지 단 분석과 분산 AI 구조 본격 적용' },
+              { year: '2027', goal: 'Self-Healing Battery Architecture.', status: '자가 판단·자율 대응 배터리 운영 구조 비전' }
             ].map((step, idx) => (
               <div key={idx} className="bg-slate-800/50 p-8 rounded-3xl border border-slate-700 transition-all">
                  <div className="text-blue-400 font-black text-2xl mb-4">{step.year}</div>
