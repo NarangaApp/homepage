@@ -91,7 +91,7 @@ const TechPage: React.FC = () => {
           <div className="w-16 h-1 bg-[#0066ff] mx-auto rounded-full" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {AWARD_PORTFOLIO.map((award, idx) => (
             <div key={idx} className="bg-white rounded-2xl shadow-[0_14px_36px_-12px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col border border-gray-100/80">
               <div className="h-[240px] bg-gray-50 flex items-center justify-center relative overflow-hidden p-6">
