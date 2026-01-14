@@ -7,21 +7,21 @@ const LOCATIONS = {
   hq: {
     name: 'NARANGA TOWER (HQ)',
     type: 'Headquarter Office',
-    address: '서울특별시 강남구 테헤란로 123 나랑가타워 45층',
-    detail: '2호선 강남역 12번 출구 도보 3분',
-    contact: '02-123-4567',
-    email: 'business@naranga.com',
+    address: '울산광역시 울주군 웅촌면 곡천동문길 32 503호',
+    detail: '웅촌 하차 후 도보 4분',
+    contact: '0507-1363-1853',
+    email: 'ceo@naranga.com',
     mapUrl: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200',
-    coords: { lat: 37.4979, lng: 127.0276 },
+    coords: { lat: 35.4659022768926, lng: 129.209961142058 },
     tag: 'Strategic Hub'
   },
   lab: {
     name: 'NARANGA R&D CAMPUS',
     type: 'Research & Development',
-    address: '울산광역시 남구 테크노산업로 55번길 10 207호',
+    address: '울산광역시 남구 테크노산업로 55번길 10 207호 (유니스트 AI 혁신파크)',
     detail: '산학융합지구캠퍼스 하차 후 도보 5분',
-    contact: '031-987-6543',
-    email: 'support@naranga.com',
+    contact: '0507-1363-1853',
+    email: 'ceo@naranga.com',
     mapUrl: 'https://images.unsplash.com/photo-1516192518150-0d8fee5425e3?auto=format&fit=crop&q=80&w=1200',
     coords: { lat: 35.512615049061, lng: 129.296740585159 },
     tag: 'Innovation Hub'
@@ -29,7 +29,7 @@ const LOCATIONS = {
 };
 
 const UnifiedLocationTeam: React.FC = () => {
-  const [activeLoc, setActiveLoc] = useState<'hq' | 'lab'>('hq');
+  const [activeLoc, setActiveLoc] = useState<'hq' | 'lab'>('lab');
   const loc = LOCATIONS[activeLoc];
 
   return (
@@ -53,18 +53,10 @@ const UnifiedLocationTeam: React.FC = () => {
               <div 
                 className="absolute top-1.5 bottom-1.5 bg-white rounded-[1.6rem] shadow-xl shadow-blue-200/40 transition-all duration-500 ease-out z-0"
                 style={{ 
-                  left: activeLoc === 'hq' ? '6px' : 'calc(50% + 2px)',
+                  left: activeLoc === 'lab' ? '6px' : 'calc(50% + 2px)',
                   width: 'calc(50% - 8px)'
                 }}
               />
-              <button 
-                onClick={() => setActiveLoc('hq')}
-                className={`relative z-10 flex items-center gap-2 px-10 py-4 rounded-[1.6rem] text-sm font-black transition-all duration-300 ${
-                  activeLoc === 'hq' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-500'
-                }`}
-              >
-                본사
-              </button>
               <button 
                 onClick={() => setActiveLoc('lab')}
                 className={`relative z-10 flex items-center gap-2 px-10 py-4 rounded-[1.6rem] text-sm font-black transition-all duration-300 ${
@@ -72,6 +64,14 @@ const UnifiedLocationTeam: React.FC = () => {
                 }`}
               >
                 연구소
+              </button>
+              <button 
+                onClick={() => setActiveLoc('hq')}
+                className={`relative z-10 flex items-center gap-2 px-10 py-4 rounded-[1.6rem] text-sm font-black transition-all duration-300 ${
+                  activeLoc === 'hq' ? 'text-blue-600' : 'text-gray-400 hover:text-gray-500'
+                }`}
+              >
+                본사
               </button>
             </div>
 
