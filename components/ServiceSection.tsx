@@ -86,7 +86,7 @@ const ServiceSection: React.FC = () => {
               <div className={`absolute inset-0 flex flex-col justify-end p-12 md:p-20 transition-all duration-700 delay-100 ${
                 isHovered ? 'opacity-100 translate-y-0 visible' : 'opacity-0 translate-y-10 invisible'
               }`}>
-                <div className="max-w-3xl">
+                <div className="w-full max-w-none">
                   <span className="inline-block px-4 py-1 bg-blue-600 text-white text-[10px] font-black rounded-full uppercase tracking-widest mb-6">
                     Division 0{index + 1}
                   </span>
@@ -97,11 +97,11 @@ const ServiceSection: React.FC = () => {
                     {service.description}
                   </p>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-[repeat(4,minmax(260px,1fr))] gap-4">
                     {service.features.map((feature, i) => (
-                      <div key={i} className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/20">
+                      <div key={i} className="flex items-center gap-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full border border-white/20 min-h-[44px]">
                         <div className="w-1.5 h-1.5 bg-blue-400 rounded-full" />
-                        <span className="text-white text-sm font-bold whitespace-nowrap">{feature}</span>
+                        <span className="text-white text-[11px] font-bold leading-tight whitespace-normal">{feature}</span>
                       </div>
                     ))}
                   </div>
