@@ -7,12 +7,12 @@ const LOCATIONS_DETAIL = {
     id: 'hq',
     title: 'NARANGA TOWER (본사)',
     type: 'Business & Management',
-    address: '서울특별시 강남구 테헤란로 123 나랑가타워 45층',
-    contact: '02-123-4567',
-    email: 'biz@naranga.com',
+    address: '울산광역시 울주군 웅촌면 곡천동문길32 503호',
+    contact: '0507-1363-1853',
+    email: 'ceo@naranga.co.kr',
     bus: '2호선 강남역 12번 출구 (도보 3분)',
     parking: '나랑가타워 지하 주차장 이용 (2시간 무료 지원)',
-    coords: { lat: 37.4979, lng: 127.0276 },
+    coords: { lat: 35.4659022768926, lng: 129.209961142058 },
     tag: 'Strategic Hub'
   },
   lab: {
@@ -20,8 +20,8 @@ const LOCATIONS_DETAIL = {
     title: 'NARANGA R&D CAMPUS (연구소)',
     type: 'Research & Innovation',
     address: '울산광역시 남구 테크노산업로 55번길 10 207호',
-    contact: '031-987-6543',
-    email: 'tech@naranga.com',
+    contact: '0507-1363-1853',
+    email: 'ceo@naranga.co.kr',
     bus: '산학융합지구캠퍼스 하차 후 도보 5분 ',
     parking: '캠퍼스 내 지상 주차장 이용 가능',
     coords: { lat: 35.512615049061, lng: 129.296740585159 },
@@ -30,7 +30,7 @@ const LOCATIONS_DETAIL = {
 };
 
 const LocationPage: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'hq' | 'lab'>('hq');
+  const [activeTab, setActiveTab] = useState<'hq' | 'lab'>('lab');
   const loc = LOCATIONS_DETAIL[activeTab];
 
   return (
@@ -67,23 +67,10 @@ const LocationPage: React.FC = () => {
               <div 
                 className="absolute top-2 bottom-2 bg-white rounded-[2rem] shadow-xl transition-all duration-500 ease-out z-0"
                 style={{ 
-                  left: activeTab === 'hq' ? '8px' : 'calc(50% + 4px)',
+                  left: activeTab === 'lab' ? '8px' : 'calc(50% + 4px)',
                   width: 'calc(50% - 12px)'
                 }}
               />
-
-              {/* HQ Tab Button */}
-              <button 
-                onClick={() => setActiveTab('hq')}
-                className={`relative z-10 flex items-center justify-center gap-3 px-12 py-5 rounded-[2rem] transition-all duration-300 ${
-                  activeTab === 'hq' ? 'text-blue-950 font-black' : 'text-white/40 font-bold hover:text-white/70'
-                }`}
-              >
-                <svg className={`w-5 h-5 transition-colors ${activeTab === 'hq' ? 'text-blue-600' : 'text-white/30'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
-                <span className="text-base tracking-tight">본사</span>
-              </button>
 
               {/* Lab Tab Button */}
               <button 
@@ -96,6 +83,19 @@ const LocationPage: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.282a2 2 0 01-1.806 0l-.628-.282A6 6 0 005.24 14.4l-2.387.477a2 2 0 00-1.022.547m18.596 0l-3.328 3.328a2 2 0 01-2.828 0l-3-3a2 2 0 00-2.828 0l-3 3a2 2 0 01-2.828 0l-3.328-3.328" />
                 </svg>
                 <span className="text-base tracking-tight">연구소</span>
+              </button>
+
+              {/* HQ Tab Button */}
+              <button 
+                onClick={() => setActiveTab('hq')}
+                className={`relative z-10 flex items-center justify-center gap-3 px-12 py-5 rounded-[2rem] transition-all duration-300 ${
+                  activeTab === 'hq' ? 'text-blue-950 font-black' : 'text-white/40 font-bold hover:text-white/70'
+                }`}
+              >
+                <svg className={`w-5 h-5 transition-colors ${activeTab === 'hq' ? 'text-blue-600' : 'text-white/30'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+                <span className="text-base tracking-tight">본사</span>
               </button>
             </div>
           </div>
