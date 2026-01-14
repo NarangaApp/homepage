@@ -25,25 +25,6 @@ import ProductSoftwareRoutePage from './pages/products/software/page';
 import ProductHardwareRoutePage from './pages/products/hardware/page';
 import ProductPageView, { ProductId } from './pages/products/ProductPageView';
 
-const ProblemSplinePreload: React.FC = () => (
-  <iframe
-    title="preload-problem-spline"
-    src="https://my.spline.design/zerogravityphysicslandingpage-BSA3fsEvj2zl7K6LAonsNDmc/"
-    loading="eager"
-    aria-hidden="true"
-    tabIndex={-1}
-    style={{
-      position: 'absolute',
-      width: '1px',
-      height: '1px',
-      opacity: 0,
-      pointerEvents: 'none',
-      border: 0,
-      inset: 0
-    }}
-  />
-);
-
 const MainLanding = () => (
   <>
     <Hero />
@@ -85,7 +66,6 @@ const AppShell: React.FC = () => {
   return (
     <div className="relative min-h-screen flex flex-col bg-white">
       <Header isScrolled={isScrolled} />
-      <ProblemSplinePreload />
       <main className="flex-grow transition-all duration-500">
         <Routes>
           <Route path="/" element={<MainLanding />} />
