@@ -121,7 +121,7 @@ const ServiceSection: React.FC = () => {
 
       {/* Technology Logic Diagram Embed */}
       <div className="mt-28 md:mt-40 pb-24 md:pb-28">
-        <div ref={diagramRef} className="relative w-full pt-[38%] overflow-hidden bg-black">
+        <div ref={diagramRef} className="relative w-full pt-[44%] overflow-hidden bg-black">
           {showDiagram ? (
             <iframe
               src='https://my.spline.design/webdiagram-tJFxlIXusSEzS2Kqn4WrA9oy/'

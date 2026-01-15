@@ -134,7 +134,7 @@ const ContactPage: React.FC = () => {
           </div>
 
           {/* Right: Form Side */}
-          <div className="flex-grow bg-white p-8 md:p-14 rounded-[2.5rem] shadow-[0_40px_90px_-20px_rgba(0,0,0,0.08)] border border-gray-100 relative overflow-hidden">
+          <div className="w-full flex-grow bg-white p-6 sm:p-8 md:p-14 rounded-[2.5rem] shadow-[0_40px_90px_-20px_rgba(0,0,0,0.08)] border border-gray-100 relative overflow-hidden">
             {showSuccess && (
               <div className="absolute inset-0 bg-white/98 backdrop-blur-md z-50 flex items-center justify-center animate-fade-in px-6 text-center">
                 <div className="max-w-md">
@@ -153,13 +153,13 @@ const ContactPage: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-8">
               <div className="space-y-3">
                 <label className="text-[12px] font-black text-gray-900 uppercase tracking-widest block ml-1">문의 주체 <span className="text-blue-600">*</span></label>
-                <div className="flex p-1 bg-gray-100 rounded-xl w-fit shadow-inner">
+                <div className="flex w-full max-w-sm sm:w-fit p-1 bg-gray-100 rounded-xl shadow-inner">
                   {['corporate', 'individual'].map((type) => (
                     <button
                       key={type}
                       type="button"
                       onClick={() => setInquirySource(type as any)}
-                      className={`px-8 py-2.5 rounded-[0.8rem] text-sm font-black transition-all duration-300 ${
+                      className={`flex-1 sm:flex-none px-6 sm:px-8 py-2.5 rounded-[0.8rem] text-sm font-black transition-all duration-300 ${
                         inquirySource === type 
                           ? 'bg-white text-blue-600 shadow-md' 
                           : 'text-gray-400 hover:text-gray-600'

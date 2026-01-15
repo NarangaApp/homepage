@@ -126,7 +126,7 @@ const FAQPage: React.FC<FAQPageProps> = ({ onNavigate }) => {
                 className="w-full px-8 py-8 flex items-center justify-between text-left group"
               >
                 <div className="flex items-center gap-6">
-                  <span className={`px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest ${
+                  <span className={`min-w-[56px] h-8 inline-flex items-center justify-center px-3 rounded-lg text-[10px] font-black uppercase tracking-widest ${
                     faq.category === '기술' ? 'bg-blue-50 text-blue-600' :
                     faq.category === '서비스' ? 'bg-blue-50 text-blue-600' : 'bg-gray-50 text-gray-600'
                   }`}>
