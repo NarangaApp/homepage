@@ -1,19 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
+import Spline from '@splinetool/react-spline';
 import TechNetwork from './TechNetwork';
 
 const AwardsSection: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
-  const iframeRef = useRef<HTMLIFrameElement | null>(null);
-
-  useEffect(() => {
-    const checkFocus = () => {
-      if (document.activeElement === iframeRef.current && !isActive) {
-        setTimeout(() => setIsActive(true), 2000);
-      }
-    };
-    const intervalId = setInterval(checkFocus, 200);
-    return () => clearInterval(intervalId);
-  }, [isActive]);
   return (
     <section id="tech-certification" className="bg-white pt-16 md:pt-20">
       {/* Header 영역을 별도 화이트 블록에 배치 */}
@@ -45,13 +35,19 @@ const AwardsSection: React.FC = () => {
           }}
           aria-hidden="true"
         />
-        <iframe
-          ref={iframeRef}
-          src="https://my.spline.design/aidatamodelinteraction-a6BZOAmb8UsJ4StNJ68OQ1E8/"
-          frameBorder="0"
-          title="Tech Network 3D"
+        <Spline
+          scene="https://my.spline.design/aidatamodelinteraction-a6BZOAmb8UsJ4StNJ68OQ1E8/"
           className="absolute inset-0 w-[110%] h-[115%] -top-8 -left-[5%]"
-          allowFullScreen
+          onMouseDown={() => {
+            if (!isActive) {
+              setIsActive(true);
+            }
+          }}
+          onTouchStart={() => {
+            if (!isActive) {
+              setIsActive(true);
+            }
+          }}
         />
         {/* 노드 오버레이: 클릭/포커스 시 활성화 */}
         <TechNetwork isActive={isActive} />

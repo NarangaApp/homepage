@@ -68,9 +68,13 @@ const TechNetwork: React.FC<TechNetworkProps> = ({ isActive }) => {
     }));
   }, [isMobile]);
 
+  if (!showNodes) {
+    return null;
+  }
+
   return (
-    <div className={`absolute inset-0 z-10 pointer-events-none transition-opacity duration-700 ${showNodes ? 'opacity-100' : 'opacity-0'}`}>
-      <svg className="absolute inset-0 w-full h-full pointer-events-none">
+    <>
+      <svg className="absolute inset-0 z-20 w-full h-full pointer-events-none">
         <defs>
           <linearGradient id="line-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="transparent" />
@@ -146,12 +150,11 @@ const TechNetwork: React.FC<TechNetworkProps> = ({ isActive }) => {
         return (
           <div
             key={node.id}
-            className="absolute w-0 h-0 flex items-center justify-center pointer-events-auto"
+            className="absolute w-0 h-0 flex items-center justify-center"
             style={{
               left: `${node.x}%`,
               top: `${node.y}%`,
-              zIndex: hoveredId === node.id ? 100 : 10,
-              pointerEvents: showNodes ? 'auto' : 'none'
+              zIndex: hoveredId === node.id ? 100 : 10
             }}
           >
             <div
@@ -215,7 +218,7 @@ const TechNetwork: React.FC<TechNetworkProps> = ({ isActive }) => {
           </div>
         );
       })}
-    </div>
+    </>
   );
 };
 
