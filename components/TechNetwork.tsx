@@ -50,14 +50,14 @@ const TechNetwork: React.FC<TechNetworkProps> = ({ isActive }) => {
     ];
 
     const mobileNodes = [
-      { id: 1, title: '실시간 멀티 스캐너', desc: 'Real-time Multi Scanner', x: 18, y: 16, img: '/images/thumbs/app-proof-2025-05-thumb-v2.png', conn: [6, 5, 2], status: 'RUNNING', badgeDetail: '출원 2023-0182953' },
-      { id: 2, title: '허위매물 조회 서비스', desc: 'Fake Listing Detection', x: 82, y: 16, img: '/images/thumbs/app-proof-2025-04-thumb-v2.png', conn: [6, 1, 3], status: 'ACTIVE', badgeDetail: '출원 2023-0171413' },
-      { id: 5, title: '자동차 유전자 AI 지도', desc: 'Automotive DNA AI Map', x: 16, y: 48, img: '/images/patent-10-2024-0111369.png', conn: [6, 8, 1], status: 'REGISTERED', badgeDetail: '등록 제 10-0111369 호' },
-      { id: 6, title: '기업부설연구소 인정', desc: 'R&D Center Certification', x: 50, y: 58, img: '/images/certificate-rnd-lab.png', conn: [1, 2, 3, 4, 5, 7, 8], status: 'OFFICIAL', badgeDetail: '인증서 보유' },
-      { id: 3, title: '차량 상태 증강현실', desc: 'AR Condition Viewer', x: 84, y: 46, img: '/images/thumbs/app-proof-2025-03-thumb-v2.png', conn: [6, 2, 4], status: 'BETA', badgeDetail: '출원 2024-0090904' },
-      { id: 8, title: '가격산출 동작 알고리즘', desc: 'Pricing Algorithm Logic', x: 18, y: 84, img: '/images/thumbs/app-proof-2025-01-thumb-v2.png', conn: [6, 7, 5], status: 'PENDING', badgeDetail: '출원 2023-0141562' },
-      { id: 4, title: 'OCV 배터리 진단', desc: 'OCV Battery Diagnostics', x: 82, y: 82, img: '/images/thumbs/app-proof-2025-02-thumb-v2.png', conn: [6, 3, 7], status: 'ANALYZING', badgeDetail: '출원 2025-0112372' },
-      { id: 7, title: '중고차 가격산출 서버', desc: 'AI Price Estimation Server', x: 50, y: 92, img: '/images/patent-10-2023-0141562.png', conn: [6, 4, 8], status: 'REGISTERED', badgeDetail: '등록 제 10-0141562 호' }
+      { id: 1, title: '실시간 멀티 스캐너', desc: 'Real-time Multi Scanner', x: 14, y: 14, img: '/images/thumbs/app-proof-2025-05-thumb-v2.png', conn: [6, 5, 2], status: 'RUNNING', badgeDetail: '출원 2023-0182953' },
+      { id: 2, title: '허위매물 조회 서비스', desc: 'Fake Listing Detection', x: 86, y: 22, img: '/images/thumbs/app-proof-2025-04-thumb-v2.png', conn: [6, 1, 3], status: 'ACTIVE', badgeDetail: '출원 2023-0171413' },
+      { id: 5, title: '자동차 유전자 AI 지도', desc: 'Automotive DNA AI Map', x: 12, y: 44, img: '/images/patent-10-2024-0111369.png', conn: [6, 8, 1], status: 'REGISTERED', badgeDetail: '등록 제 10-0111369 호' },
+      { id: 3, title: '차량 상태 증강현실', desc: 'AR Condition Viewer', x: 88, y: 50, img: '/images/thumbs/app-proof-2025-03-thumb-v2.png', conn: [6, 2, 4], status: 'BETA', badgeDetail: '출원 2024-0090904' },
+      { id: 6, title: '기업부설연구소 인정', desc: 'R&D Center Certification', x: 50, y: 62, img: '/images/certificate-rnd-lab.png', conn: [1, 2, 3, 4, 5, 7, 8], status: 'OFFICIAL', badgeDetail: '인증서 보유' },
+      { id: 8, title: '가격산출 동작 알고리즘', desc: 'Pricing Algorithm Logic', x: 12, y: 74, img: '/images/thumbs/app-proof-2025-01-thumb-v2.png', conn: [6, 7, 5], status: 'PENDING', badgeDetail: '출원 2023-0141562' },
+      { id: 4, title: 'OCV 배터리 진단', desc: 'OCV Battery Diagnostics', x: 88, y: 82, img: '/images/thumbs/app-proof-2025-02-thumb-v2.png', conn: [6, 3, 7], status: 'ANALYZING', badgeDetail: '출원 2025-0112372' },
+      { id: 7, title: '중고차 가격산출 서버', desc: 'AI Price Estimation Server', x: 50, y: 94, img: '/images/patent-10-2023-0141562.png', conn: [6, 4, 8], status: 'REGISTERED', badgeDetail: '등록 제 10-0141562 호' }
     ];
 
     return (isMobile ? mobileNodes : desktopNodes).map(node => ({

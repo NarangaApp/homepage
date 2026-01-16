@@ -54,7 +54,11 @@ const BusinessRoutePage: React.FC = () => {
 
             {/* Connector */}
             <div className="hidden lg:flex items-center justify-center">
-              <div className="h-0.5 w-full max-w-[140px] bg-gradient-to-r from-blue-100 via-blue-300 to-blue-200" />
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+              </div>
             </div>
 
             {/* Center: Naranga AI Engine */}
@@ -80,7 +84,11 @@ const BusinessRoutePage: React.FC = () => {
 
             {/* Connector */}
             <div className="hidden lg:flex items-center justify-center">
-              <div className="h-0.5 w-full max-w-[140px] bg-gradient-to-r from-blue-100 via-blue-300 to-blue-200" />
+              <div className="flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+              </div>
             </div>
 
             {/* Step 2: Intelligent Insight */}
