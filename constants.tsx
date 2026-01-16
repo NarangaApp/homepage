@@ -47,7 +47,8 @@ export const SERVICES: Service[] = [
     title: 'AI',
     description: '미래의 위험을 사전에 차단하는 \n 지능형 판단 엔진',
     longDescription: 'Naranga Brain AI는 나랑가의 핵심 기술 자산으로, \n "Digital Twin Physics-AI" 구조를 기반으로 배터리 내부 열화 과정을 가상 환경에서 \n 재현합니다. \n 실제 운행 데이터를 학습한 AI가 배터리 상태 변화를 지속적으로 추적하여 \n 사고 가능성과 수명 저하를 사전에 예측합니다.',
-    imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200',
+    imageUrl: '/images/AI.png',
+    // imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200',
     features: [
       'Transformer 기반 시계열 학습 구조',
       '물리 모델과 데이터 기반 AI의 하이브리드 설계',
