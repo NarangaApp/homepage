@@ -26,7 +26,7 @@ const ServiceSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="business-areas" className="py-16 bg-white overflow-hidden">
+    <section id="business-areas" className="py-16 bg-white">
       <div className="container mx-auto px-6 mb-10">
         <div className="text-center">
           <span className="text-blue-600 font-black tracking-[0.3em] uppercase text-xs">Our Core Expertise</span>
@@ -121,7 +121,10 @@ const ServiceSection: React.FC = () => {
 
       {/* Technology Logic Diagram Embed */}
       <div className="mt-28 md:mt-40 pb-24 md:pb-28">
-        <div ref={diagramRef} className="relative w-full pt-[44%] overflow-hidden bg-black">
+        <div
+          ref={diagramRef}
+          className="relative w-screen aspect-[5/4] md:aspect-[16/7] overflow-hidden bg-black left-1/2 -translate-x-1/2"
+        >
           {showDiagram ? (
             <iframe
               src='https://my.spline.design/webdiagram-tJFxlIXusSEzS2Kqn4WrA9oy/'
