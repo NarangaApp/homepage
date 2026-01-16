@@ -25,15 +25,15 @@ const BusinessRoutePage: React.FC = () => {
       <section className="py-32 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tighter">The Intelligence Pipeline</h2>
-            <p className="text-gray-400 text-sm font-bold mt-2">데이터가 가치로 변하는 나랑가만의 독자적 프로세스</p>
+            <h2 className="text-5xl font-black text-gray-900 uppercase tracking-tighter">The Intelligence Pipeline</h2>
+            <p className="text-gray-400 text-lg font-bold mt-2">데이터가 가치로 변하는 나랑가만의 독자적 프로세스</p>
           </div>
 
-          <div className="flex flex-col items-center gap-12 lg:grid lg:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)_140px_minmax(0,1fr)] lg:items-center lg:gap-6">
+            <div className="flex flex-col items-center gap-12 lg:grid lg:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)_140px_minmax(0,1fr)] lg:items-stretch lg:gap-6">
             
             {/* Step 1: Data Acquisition */}
             <div className="w-full max-w-sm mx-auto">
-              <div className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-xl shadow-gray-100/50 relative group hover:border-blue-200 transition-all text-center">
+              <div className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-xl shadow-gray-100/50 relative group hover:border-blue-200 transition-all text-center h-full">
                 <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-8 text-[#0066ff] relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#0066ff]/5 animate-ping opacity-20" />
                   <svg className="w-8 h-8 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,17 +53,11 @@ const BusinessRoutePage: React.FC = () => {
             </div>
 
             {/* Connector */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-              </div>
-            </div>
+            <div className="hidden lg:block" aria-hidden="true" />
 
             {/* Center: Naranga AI Engine */}
             <div className="w-full max-w-sm mx-auto">
-              <div className="bg-[#eaf2ff] p-10 rounded-[3rem] border border-blue-100 shadow-xl shadow-blue-100/40 relative group hover:border-blue-200 transition-all text-center">
+              <div className="bg-[#eaf2ff] p-10 rounded-[3rem] border border-blue-100 shadow-xl shadow-blue-100/40 relative group hover:border-blue-200 transition-all text-center h-full">
                 <div className="w-16 h-16 bg-white/70 rounded-2xl flex items-center justify-center mx-auto mb-8 text-[#0066ff] relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#0066ff]/5 animate-ping opacity-20" />
                   <svg className="w-8 h-8 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,17 +77,11 @@ const BusinessRoutePage: React.FC = () => {
             </div>
 
             {/* Connector */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-              </div>
-            </div>
+            <div className="hidden lg:block" aria-hidden="true" />
 
             {/* Step 2: Intelligent Insight */}
             <div className="w-full max-w-sm mx-auto">
-              <div className="bg-[#0066ff] p-10 rounded-[3rem] shadow-2xl shadow-blue-200 relative group text-center overflow-hidden">
+              <div className="bg-[#0066ff] p-10 rounded-[3rem] shadow-2xl shadow-blue-200 relative group text-center overflow-hidden h-full">
                 {/* Decorative Pattern inside card */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-10 -mt-10" />
                 
@@ -114,6 +102,23 @@ const BusinessRoutePage: React.FC = () => {
               </div>
             </div>
 
+          </div>
+          <div className="relative hidden lg:grid lg:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)_140px_minmax(0,1fr)] lg:gap-6 mt-10 items-center">
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[6px] rounded-full z-0 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-500" />
+            <div className="flex justify-center relative">
+              <span className="absolute left-1/2 -top-10 h-10 w-px -translate-x-1/2 bg-blue-200" />
+              <span className="w-3 h-3 rounded-full bg-blue-300 relative z-10" />
+            </div>
+            <div />
+            <div className="flex justify-center relative">
+              <span className="absolute left-1/2 -top-10 h-10 w-px -translate-x-1/2 bg-blue-200" />
+              <span className="w-3 h-3 rounded-full bg-blue-300 relative z-10" />
+            </div>
+            <div />
+            <div className="flex justify-center relative">
+              <span className="absolute left-1/2 -top-10 h-10 w-px -translate-x-1/2 bg-blue-200" />
+              <span className="w-3 h-3 rounded-full bg-blue-300 relative z-10" />
+            </div>
           </div>
         </div>
       </section>
