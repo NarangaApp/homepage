@@ -22,21 +22,85 @@ const BusinessRoutePage: React.FC = () => {
       </section>
 
       {/* 2. Enhanced Business Value Chain: Data Pipeline Logic */}
-      <section className="py-32 relative overflow-hidden">
+      <section className="pt-12 pb-20 relative overflow-hidden">
         <div className="container mx-auto px-6 relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl font-black text-gray-900 uppercase tracking-tighter">The Intelligence Pipeline</h2>
+          <div className="text-center mb-0 lg:hidden">
+            <h2 className="text-5xl font-black text-gray-900 uppercase tracking-tighter mt-3">The Intelligence Pipeline</h2>
             <p className="text-gray-400 text-lg font-bold mt-2">데이터가 가치로 변하는 나랑가만의 독자적 프로세스</p>
           </div>
 
-            <div className="flex flex-col items-center gap-12 lg:grid lg:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)_140px_minmax(0,1fr)] lg:items-stretch lg:gap-6">
-            
-            {/* Step 1: Data Acquisition */}
-            <div className="w-full max-w-sm mx-auto">
-              <div className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-xl shadow-gray-100/50 relative group hover:border-blue-200 transition-all text-center h-full">
-                <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-8 text-[#0066ff] relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[#0066ff]/5 animate-ping opacity-20" />
-                  <svg className="w-8 h-8 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="mt-0">
+            <div className="hidden lg:block relative h-[440px]">
+              <div className="absolute left-1/2 top-[100px] w-full -translate-x-1/2 -translate-y-1/2 text-center">
+                <h2 className="text-5xl font-black text-gray-900 uppercase tracking-tighter">The Intelligence Pipeline</h2>
+                <p className="text-gray-400 text-lg font-bold mt-2">데이터가 가치로 변하는 나랑가만의 독자적 프로세스</p>
+              </div>
+              <div className="absolute left-1/2 top-0 h-full w-[1320px] -translate-x-1/2">
+                <div className="absolute left-0 top-[200px] w-[420px] h-[220px] border border-gray-200 bg-white px-6 pt-6">
+                  <div className="grid grid-cols-[140px_1fr] gap-3 items-start">
+                    <div>
+                      <div className="w-14 h-14 bg-gray-50 rounded-none flex items-center justify-center mb-6 text-[#0066ff]">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        </svg>
+                      </div>
+                      <span className="text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] block mb-3 mt-2">Input Stage</span>
+                      <h3 className="text-2xl font-black text-gray-900">Precision Data</h3>
+                    </div>
+                    <p className="text-gray-500 text-sm font-medium leading-relaxed pt-6">
+                      - 엣지 디바이스 기반 초정밀 배터리 데이터 수집<br />
+                      - 전압, 전류, SOC, 온도, 운행 패턴 실시간 수집<br />
+                      - 노이즈 제거 및 신뢰도 검증을<br />거친 고품질 원천 데이터 확보
+                    </p>
+                  </div>
+                </div>
+
+                <div className="absolute left-[444px] top-[200px] w-[420px] h-[220px] bg-[#eaf2ff] px-6 pt-6">
+                  <div className="grid grid-cols-[140px_1fr] gap-3 items-start">
+                    <div>
+                  <div className="w-14 h-14 bg-white/80 rounded-none flex items-center justify-center mb-6 text-[#0066ff]">
+                    <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9.75 17L9 20l3-1 3 1-.75-3m-4.5-6h4.5m-4.5 0a2.25 2.25 0 01-2.25-2.25V6.75A2.25 2.25 0 019.75 4.5h4.5A2.25 2.25 0 0116.5 6.75v2.25A2.25 2.25 0 0114.25 11m-4.5 0h4.5" />
+                    </svg>
+                  </div>
+                  <div className="mb-4">
+                    <span className="text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] block mb-2">Core Engine</span>
+                    <h3 className="text-2xl font-black text-gray-900">Naranga AI Engine</h3>
+                  </div>
+                    </div>
+                    <p className="text-gray-500 text-sm font-medium leading-relaxed pt-6">
+                      - 시계열 기반 배터리 상태 학습<br /><br />
+                      - 이상 패턴 자동 인식 및 열화 진행 추적<br /><br />
+                      - 물리 모델과 AI 결합 구조를 통한 예측 신뢰성 확보
+                    </p>
+                  </div>
+                </div>
+
+                <div className="absolute left-[888px] top-[200px] h-[220px] w-[420px] bg-[#0066ff] px-6 pt-6 text-white [clip-path:polygon(0_0,84%_0,100%_50%,84%_100%,0_100%)]">
+                  <div className="grid grid-cols-[140px_1fr] gap-3 items-start">
+                    <div className="shrink-0">
+                      <div className="w-14 h-14 bg-white/10 rounded-none flex items-center justify-center mb-6 text-white">
+                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <span className="text-[10px] font-black text-blue-200/70 uppercase tracking-[0.3em] block mb-3 mt-2">Output Stage</span>
+                      <h3 className="text-2xl font-black">Actionable<br />Insight</h3>
+                    </div>
+                    <p className="text-blue-100 text-sm font-medium leading-relaxed pt-6">
+                      - 배터리 상태(SOH) 정밀 산출<br /><br />
+                      - 고장 및 성능 저하 사전 경고<br /><br />
+                      - 교체·정비·운영 의사결정에 바로<br />활용 가능한 인사이트 제공
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-8 lg:hidden">
+              <div className="bg-white border border-gray-200 shadow-sm p-8 rounded-[2.5rem]">
+                <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 text-[#0066ff]">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                   </svg>
                 </div>
@@ -47,20 +111,13 @@ const BusinessRoutePage: React.FC = () => {
                 <p className="text-gray-500 text-sm font-medium leading-relaxed">
                   - 엣지 디바이스 기반 초정밀 배터리 데이터 수집<br />
                   - 전압, 전류, SOC, 온도, 운행 패턴 실시간 수집<br />
-                  - 노이즈 제거 및 신뢰도 검증을 거친<br />고품질 원천 데이터 확보
+                  - 노이즈 제거 및 신뢰도 검증을<br />거친 고품질 원천 데이터 확보
                 </p>
               </div>
-            </div>
 
-            {/* Connector */}
-            <div className="hidden lg:block" aria-hidden="true" />
-
-            {/* Center: Naranga AI Engine */}
-            <div className="w-full max-w-sm mx-auto">
-              <div className="bg-[#eaf2ff] p-10 rounded-[3rem] border border-blue-100 shadow-xl shadow-blue-100/40 relative group hover:border-blue-200 transition-all text-center h-full">
-                <div className="w-16 h-16 bg-white/70 rounded-2xl flex items-center justify-center mx-auto mb-8 text-[#0066ff] relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[#0066ff]/5 animate-ping opacity-20" />
-                  <svg className="w-8 h-8 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-[#eaf2ff] border border-blue-100 shadow-sm p-8 rounded-[2.5rem]">
+                <div className="w-14 h-14 bg-white/80 rounded-2xl flex items-center justify-center mb-6 text-[#0066ff]">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9.75 17L9 20l3-1 3 1-.75-3m-4.5-6h4.5m-4.5 0a2.25 2.25 0 01-2.25-2.25V6.75A2.25 2.25 0 019.75 4.5h4.5A2.25 2.25 0 0116.5 6.75v2.25A2.25 2.25 0 0114.25 11m-4.5 0h4.5" />
                   </svg>
                 </div>
@@ -74,25 +131,16 @@ const BusinessRoutePage: React.FC = () => {
                   - 물리 모델과 AI 결합 구조를 통한 예측 신뢰성 확보
                 </p>
               </div>
-            </div>
 
-            {/* Connector */}
-            <div className="hidden lg:block" aria-hidden="true" />
-
-            {/* Step 2: Intelligent Insight */}
-            <div className="w-full max-w-sm mx-auto">
-              <div className="bg-[#0066ff] p-10 rounded-[3rem] shadow-2xl shadow-blue-200 relative group text-center overflow-hidden h-full">
-                {/* Decorative Pattern inside card */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-10 -mt-10" />
-                
-                <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mx-auto mb-8 text-white relative">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="bg-[#0066ff] text-white shadow-lg p-8 rounded-[2.5rem]">
+                <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 text-white">
+                  <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
                 <div className="mb-4">
-                  <span className="text-[10px] font-black text-blue-200/60 uppercase tracking-[0.3em] block mb-2">Output Stage</span>
-                  <h3 className="text-2xl font-black text-white">Actionable Insight</h3>
+                  <span className="text-[10px] font-black text-blue-200/70 uppercase tracking-[0.3em] block mb-2">Output Stage</span>
+                  <h3 className="text-2xl font-black">Actionable Insight</h3>
                 </div>
                 <p className="text-blue-100 text-sm font-medium leading-relaxed">
                   - 배터리 상태(SOH) 정밀 산출<br />
@@ -100,24 +148,6 @@ const BusinessRoutePage: React.FC = () => {
                   - 교체·정비·운영 의사결정에 바로 활용 가능한<br />인사이트 제공
                 </p>
               </div>
-            </div>
-
-          </div>
-          <div className="relative hidden lg:grid lg:grid-cols-[minmax(0,1fr)_140px_minmax(0,1fr)_140px_minmax(0,1fr)] lg:gap-6 mt-10 items-center">
-            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-[6px] rounded-full z-0 bg-gradient-to-r from-blue-100 via-blue-200 to-blue-500" />
-            <div className="flex justify-center relative">
-              <span className="absolute left-1/2 -top-10 h-10 w-px -translate-x-1/2 bg-blue-200" />
-              <span className="w-3 h-3 rounded-full bg-blue-300 relative z-10" />
-            </div>
-            <div />
-            <div className="flex justify-center relative">
-              <span className="absolute left-1/2 -top-10 h-10 w-px -translate-x-1/2 bg-blue-200" />
-              <span className="w-3 h-3 rounded-full bg-blue-300 relative z-10" />
-            </div>
-            <div />
-            <div className="flex justify-center relative">
-              <span className="absolute left-1/2 -top-10 h-10 w-px -translate-x-1/2 bg-blue-200" />
-              <span className="w-3 h-3 rounded-full bg-blue-300 relative z-10" />
             </div>
           </div>
         </div>
