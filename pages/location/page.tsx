@@ -62,40 +62,39 @@ const LocationPage: React.FC = () => {
 
           {/* New High-Visibility Tab Switcher */}
           <div className="flex justify-center">
-            <div className="relative p-2 bg-white/5 backdrop-blur-xl rounded-[2.5rem] border border-white/10 shadow-2xl flex items-center gap-2">
+            <div className="relative p-2 bg-white/5 backdrop-blur-xl rounded-[2.5rem] border border-white/10 shadow-2xl flex items-center gap-2 w-full max-w-[520px]">
               {/* Sliding Background Indicator */}
               <div 
-                className="absolute top-2 bottom-2 bg-white rounded-[2rem] shadow-xl transition-all duration-500 ease-out z-0"
+                className="absolute top-2 bottom-2 left-2 bg-white rounded-[2rem] shadow-xl transition-all duration-500 ease-out z-0 w-[calc(50%-0.5rem)]"
                 style={{ 
-                  left: activeTab === 'lab' ? '8px' : 'calc(50% + 4px)',
-                  width: 'calc(50% - 12px)'
+                  transform: activeTab === 'lab' ? 'translateX(0)' : 'translateX(calc(100% + 0.5rem))'
                 }}
               />
 
               {/* Lab Tab Button */}
               <button 
                 onClick={() => setActiveTab('lab')}
-                className={`relative z-10 flex items-center justify-center gap-3 px-12 py-5 rounded-[2rem] transition-all duration-300 ${
+                className={`relative z-10 flex-1 min-w-0 flex items-center justify-center gap-2 sm:gap-3 px-3 sm:px-8 md:px-12 py-4 sm:py-5 rounded-[2rem] transition-all duration-300 ${
                   activeTab === 'lab' ? 'text-blue-950 font-black' : 'text-white/40 font-bold hover:text-white/70'
                 }`}
               >
                 <svg className={`w-5 h-5 transition-colors ${activeTab === 'lab' ? 'text-blue-600' : 'text-white/30'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.628.282a2 2 0 01-1.806 0l-.628-.282A6 6 0 005.24 14.4l-2.387.477a2 2 0 00-1.022.547m18.596 0l-3.328 3.328a2 2 0 01-2.828 0l-3-3a2 2 0 00-2.828 0l-3 3a2 2 0 01-2.828 0l-3.328-3.328" />
                 </svg>
-                <span className="text-base tracking-tight">연구소</span>
+                <span className="text-sm sm:text-base tracking-tight">연구소</span>
               </button>
 
               {/* HQ Tab Button */}
               <button 
                 onClick={() => setActiveTab('hq')}
-                className={`relative z-10 flex items-center justify-center gap-3 px-12 py-5 rounded-[2rem] transition-all duration-300 ${
+                className={`relative z-10 flex-1 min-w-0 flex items-center justify-center gap-2 sm:gap-3 px-3 sm:px-8 md:px-12 py-4 sm:py-5 rounded-[2rem] transition-all duration-300 ${
                   activeTab === 'hq' ? 'text-blue-950 font-black' : 'text-white/40 font-bold hover:text-white/70'
                 }`}
               >
                 <svg className={`w-5 h-5 transition-colors ${activeTab === 'hq' ? 'text-blue-600' : 'text-white/30'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
-                <span className="text-base tracking-tight">본사</span>
+                <span className="text-sm sm:text-base tracking-tight">본사</span>
               </button>
             </div>
           </div>

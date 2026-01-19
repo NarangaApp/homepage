@@ -45,8 +45,8 @@ export const SERVICES: Service[] = [
   {
     id: 'ai',
     title: 'AI',
-    description: '미래의 위험을 사전에 차단하는 \n 지능형 판단 엔진',
-    longDescription: 'Naranga Brain AI는 나랑가의 핵심 기술 자산으로, \n "Digital Twin Physics-AI" 구조를 기반으로 배터리 내부 열화 과정을 가상 환경에서 \n 재현합니다. \n 실제 운행 데이터를 학습한 AI가 배터리 상태 변화를 지속적으로 추적하여 \n 사고 가능성과 수명 저하를 사전에 예측합니다.',
+    description: '미래의 위험을 사전에\n차단하는 지능형 판단 엔진',
+    longDescription: 'Naranga Brain AI는 나랑가의 핵심 기술 자산으로, \n "Digital Twin Physics-AI" 구조를 기반으로 배터리 내부 열화 과정을 가상 환경에서 재현합니다. \n 실제 운행 데이터를 학습한 AI가 배터리 상태 변화를 지속적으로 추적하여 사고 가능성과 수명 저하를 사전에 예측합니다.',
     imageUrl: '/images/AI.png',
     // imageUrl: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=1200',
     features: [
@@ -60,7 +60,7 @@ export const SERVICES: Service[] = [
     id: 'software',
     title: '소프트웨어',
     description: '데이터를 비즈니스 가치로 전환하는 클라우드 통합 소프트웨어',
-    longDescription: 'Naranga BaaS Suite는 다수의 전기차·배터리 자산을 \n 단일 플랫폼에서 실시간으로 관리할 수 있는 클라우드 네이티브 솔루션입니다. \n 운영자는 직관적인 대시보드를 통해 배터리 상태와 위험 요소를 한눈에 파악할 \n 수 있습니다.',
+    longDescription: 'Naranga BaaS Suite는 다수의 전기차·배터리 자산을 단일 플랫폼에서 실시간으로 관리할 수 있는 클라우드 네이티브 솔루션입니다. \n 운영자는 직관적인 대시보드를 통해 배터리 상태와 위험 요소를 한눈에 파악할  수 있습니다.',
     imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&q=80&w=1200',
     features: [
       'MSA 기반 구조로 대규모 차량 확장 대응',
@@ -72,7 +72,7 @@ export const SERVICES: Service[] = [
   {
     id: 'hardware',
     title: '하드웨어',
-    description: '실시간 데이터를 수집하는 초정밀 \n 엣지 진단 하드웨어',
+    description: '실시간 데이터를 수집하는 초정밀 엣지 진단 하드웨어',
     longDescription: 'Naranga Edge-H1은 전기차 배터리 팩 내부 변화를 mV 단위로 감지하는 고신뢰 데이터 수집 장치입니다. \n 엣지 컴퓨팅 기반 1차 분석을 수행해 데이터 품질과 전송 효율을 동시에 확보합니다.',
     imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200',
     features: [

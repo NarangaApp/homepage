@@ -93,7 +93,7 @@ const ServiceSection: React.FC = () => {
                   <h3 className="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">
                     {service.title}
                   </h3>
-                  <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed mb-12 max-w-2xl">
+                  <p className="text-white/80 text-lg md:text-xl font-medium leading-relaxed mb-12 max-w-2xl whitespace-pre-line">
                     {service.description}
                   </p>
                   

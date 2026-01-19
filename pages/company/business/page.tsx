@@ -198,7 +198,7 @@ const BusinessRoutePage: React.FC = () => {
               </div>
 
               <div className="lg:w-1/2 w-full">
-                <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight whitespace-pre-line">
+                <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 mb-8 leading-tight whitespace-pre-line break-keep">
                   {service.description}
                 </h2>
                 <p className="text-gray-500 text-lg md:text-xl font-medium leading-relaxed mb-10 whitespace-pre-line">
