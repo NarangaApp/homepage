@@ -115,10 +115,10 @@ const ProductPageView: React.FC<ProductPageViewProps> = ({ serviceId }) => {
                   className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-blue-900/10 mix-blend-multiply" />
-                <div className="absolute bottom-10 left-10 p-6 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/50">
-                   <p className="text-[10px] text-blue-600 font-black tracking-widest uppercase mb-1">Standard Reference</p>
-                   <p className="text-2xl font-black text-gray-950 italic">{service.title}</p>
-                </div>
+              </div>
+              <div className="mt-6 md:mt-0 md:absolute md:bottom-10 md:left-10 md:p-6 p-5 bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/50 max-w-full md:max-w-none">
+                 <p className="text-[9px] md:text-[10px] text-blue-600 font-black tracking-widest uppercase mb-1">Standard Reference</p>
+                 <p className="text-xl md:text-2xl font-black text-gray-950 italic">{service.title}</p>
               </div>
             </div>
 
