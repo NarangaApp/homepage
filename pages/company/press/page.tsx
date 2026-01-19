@@ -25,12 +25,12 @@ const PressPage: React.FC = () => {
   }, [selectedNewsId]);
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen overflow-x-hidden">
       {/* 1. Hero Section */}
-      <section className="relative pt-44 pb-32 overflow-visible bg-slate-900">
+      <section className="relative pt-44 pb-32 overflow-hidden md:overflow-visible bg-slate-900">
         <div className="absolute inset-0 opacity-20 pointer-events-none" 
              style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0)', backgroundSize: '40px 40px' }} />
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#0066ff]/20 rounded-full blur-[120px]" />
+        <div className="absolute -top-24 right-0 md:-right-24 w-96 h-96 bg-[#0066ff]/20 rounded-full blur-[120px]" />
         
         <div className="container mx-auto px-6 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-full mb-8">
