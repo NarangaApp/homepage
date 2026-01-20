@@ -46,28 +46,30 @@ const BusinessRoutePage: React.FC = () => {
                 <h2 className="text-5xl font-black text-gray-900 uppercase tracking-tighter">The Intelligence Pipeline</h2>
                 <p className="text-gray-400 text-lg font-bold mt-2">데이터가 가치로 변하는 나랑가만의 독자적 프로세스</p>
               </div>
-              <div className="absolute left-1/2 top-0 h-full w-[1320px] -translate-x-1/2">
-                <div className="absolute left-0 top-[200px] w-[420px] h-[220px] border border-gray-200 bg-white px-6 pt-6">
-                  <div className="grid grid-cols-[140px_1fr] gap-3 items-start">
-                    <div>
-                      <div className="w-14 h-14 bg-gray-50 rounded-none flex items-center justify-center mb-6 text-[#0066ff]">
-                        <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
-                        </svg>
+              <div className="absolute left-1/2 top-0 h-full w-[1414px] -translate-x-1/2">
+                <div className="absolute left-0 top-[200px] w-[470px] h-[220px] bg-slate-300/70 p-[1px] [clip-path:polygon(0_0,92%_0,100%_50%,92%_100%,0_100%)]">
+                  <div className="w-full h-full bg-white px-6 pt-6 [clip-path:polygon(0_0,92%_0,100%_50%,92%_100%,0_100%)]">
+                  <div className="grid grid-cols-[120px_1fr] gap-3 items-start">
+                      <div>
+                        <div className="w-14 h-14 bg-gray-50 rounded-none flex items-center justify-center mb-6 text-[#0066ff]">
+                          <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                          </svg>
+                        </div>
+                        <span className="text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] block mb-3 mt-2">Input Stage</span>
+                        <h3 className="text-2xl font-black text-gray-900">Precision Data</h3>
                       </div>
-                      <span className="text-[10px] font-black text-blue-400 uppercase tracking-[0.3em] block mb-3 mt-2">Input Stage</span>
-                      <h3 className="text-2xl font-black text-gray-900">Precision Data</h3>
+                      <p className="text-gray-500 text-sm font-medium leading-relaxed pt-6 break-keep">
+                        - 엣지 디바이스 기반 초정밀 배터리 데이터 수집<br /><br />
+                        - 전압, 전류, SOC, 온도, 운행 패턴 실시간 수집<br /><br />
+                        - 노이즈 제거 및 신뢰도 검증을 거친 고품질 원천 데이터 확보
+                      </p>
                     </div>
-                    <p className="text-gray-500 text-sm font-medium leading-relaxed pt-6">
-                      - 엣지 디바이스 기반 초정밀 배터리 데이터 수집<br />
-                      - 전압, 전류, SOC, 온도, 운행 패턴 실시간 수집<br />
-                      - 노이즈 제거 및 신뢰도 검증을<br />거친 고품질 원천 데이터 확보
-                    </p>
                   </div>
                 </div>
 
-                <div className="absolute left-[444px] top-[200px] w-[420px] h-[220px] bg-[#eaf2ff] px-6 pt-6">
-                  <div className="grid grid-cols-[140px_1fr] gap-3 items-start">
+                <div className="absolute left-[472px] top-[200px] w-[470px] h-[220px] bg-[#eaf2ff] pl-12 pr-6 pt-6 [clip-path:polygon(0_0,92%_0,100%_50%,92%_100%,0_100%,8%_50%)]">
+                  <div className="grid grid-cols-[120px_1fr] gap-3 items-start">
                     <div>
                   <div className="w-14 h-14 bg-white/80 rounded-none flex items-center justify-center mb-6 text-[#0066ff]">
                     <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,16 +81,16 @@ const BusinessRoutePage: React.FC = () => {
                     <h3 className="text-2xl font-black text-gray-900">Naranga AI Engine</h3>
                   </div>
                     </div>
-                    <p className="text-gray-500 text-sm font-medium leading-relaxed pt-6">
+                    <p className="text-gray-500 text-sm font-medium leading-relaxed pt-6 break-keep">
                       - 시계열 기반 배터리 상태 학습<br /><br />
                       - 이상 패턴 자동 인식 및 열화 진행 추적<br /><br />
-                      - 물리 모델과 AI 결합 구조를 통한 예측 신뢰성 확보
+                      - 물리 모델과 AI 결합 구조를 통한<br />예측 신뢰성 확보
                     </p>
                   </div>
                 </div>
 
-                <div className="absolute left-[888px] top-[200px] h-[220px] w-[420px] bg-[#0066ff] px-6 pt-6 text-white [clip-path:polygon(0_0,84%_0,100%_50%,84%_100%,0_100%)]">
-                  <div className="grid grid-cols-[140px_1fr] gap-3 items-start">
+                <div className="absolute left-[944px] top-[200px] h-[220px] w-[470px] bg-[#0066ff] pl-12 pr-6 pt-6 text-white [clip-path:polygon(0_0,92%_0,100%_50%,92%_100%,0_100%,8%_50%)]">
+                  <div className="grid grid-cols-[120px_1fr] gap-3 items-start">
                     <div className="shrink-0">
                       <div className="w-14 h-14 bg-white/10 rounded-none flex items-center justify-center mb-6 text-white">
                         <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -108,7 +110,7 @@ const BusinessRoutePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-2 xl:hidden">
+            <div className="flex flex-col gap-0 xl:hidden">
               <div className="bg-gray-200 p-[1px] shadow-sm [clip-path:polygon(0_0,100%_0,100%_82%,50%_100%,0_82%)]">
                 <div className="bg-white px-8 pt-16 pb-12 [clip-path:polygon(0_0,100%_0,100%_82%,50%_100%,0_82%)]">
                   <div className="max-w-[520px] mx-auto w-full">
@@ -126,13 +128,13 @@ const BusinessRoutePage: React.FC = () => {
                     <p className="text-gray-500 text-sm font-medium leading-relaxed">
                       - 엣지 디바이스 기반 초정밀 배터리 데이터 수집<br />
                       - 전압, 전류, SOC, 온도, 운행 패턴 실시간 수집<br />
-                      - 노이즈 제거 및 신뢰도 검증을<br />거친 고품질 원천 데이터 확보
+                      - 노이즈 제거 및 신뢰도 검증을 거친 고품질 원천 데이터 확보
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="bg-[#eaf2ff] border border-blue-100 shadow-sm px-8 pt-16 pb-12 [clip-path:polygon(0_0,50%_18%,100%_0,100%_82%,50%_100%,0_82%)]">
+              <div className="bg-[#eaf2ff] border border-blue-100 shadow-sm px-8 pt-16 pb-12 -mt-6 [clip-path:polygon(0_0,50%_18%,100%_0,100%_82%,50%_100%,0_82%)]">
                 <div className="max-w-[520px] mx-auto w-full">
                   <div className="flex items-start gap-4">
                     <div className="w-14 h-14 bg-white/80 rounded-2xl flex items-center justify-center text-[#0066ff] shrink-0">
@@ -153,7 +155,7 @@ const BusinessRoutePage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="bg-[#0066ff] text-white shadow-lg px-6 pt-16 pb-12 [clip-path:polygon(0_0,50%_18%,100%_0,100%_82%,50%_100%,0_82%)]">
+              <div className="bg-[#0066ff] text-white shadow-lg px-6 pt-16 pb-12 -mt-6 [clip-path:polygon(0_0,50%_18%,100%_0,100%_82%,50%_100%,0_82%)]">
                 <div className="max-w-[520px] mx-auto w-full">
                   <div className="flex items-start gap-4">
                     <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-white shrink-0">
