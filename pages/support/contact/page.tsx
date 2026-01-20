@@ -15,26 +15,53 @@ const ContactPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target;
     if (type === 'checkbox') {
       const checked = (e.target as HTMLInputElement).checked;
       setFormData(prev => ({ ...prev, [name]: checked }));
+      if (name === 'consent' && checked) {
+        setErrorMessage(null);
+      }
     } else {
       setFormData(prev => ({ ...prev, [name]: value }));
+    }
+    if (fieldErrors[name]) {
+      setFieldErrors({});
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const missingFields: { key: keyof typeof formData; message: string }[] = [];
+    if (!formData.name.trim()) missingFields.push({ key: 'name', message: '이름을 입력해 주세요.' });
+    if (!formData.email.trim()) missingFields.push({ key: 'email', message: '이메일을 입력해 주세요.' });
+    if (inquirySource === 'corporate' && !formData.company.trim()) missingFields.push({ key: 'company', message: '회사명을 입력해 주세요.' });
+    if (!formData.subject.trim()) missingFields.push({ key: 'subject', message: '제목을 입력해 주세요.' });
+    if (!formData.message.trim()) missingFields.push({ key: 'message', message: '문의 내용을 입력해 주세요.' });
+    if (missingFields.length > 0) {
+      const first = missingFields[0];
+      setFieldErrors({ [first.key]: first.message });
+      setErrorMessage(null);
+      const target = document.getElementById(`contact-${first.key}`);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) {
+          target.focus();
+        }
+      }
+      return;
+    }
     if (!formData.consent) {
-      alert('개인정보 수집 및 이용에 동의해 주세요.');
+      setErrorMessage('개인정보 수집 및 이용에 동의해 주세요.');
       return;
     }
     
     setIsSubmitting(true);
     setErrorMessage(null);
+    setFieldErrors({});
 
     try {
       const response = await fetch('/api/send-contact', {
@@ -85,11 +112,15 @@ const ContactPage: React.FC = () => {
             <span className="text-blue-600 font-black tracking-[0.25em] uppercase text-[11px]">Direct Connection</span>
           </div>
           <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-6 leading-tight tracking-tighter">
-            전문가와 <span className="text-blue-600">다이렉트</span>로 연결하세요
+            <span className="md:hidden">전문가와 <span className="text-blue-600">다이렉트</span>로<br />연결하세요</span>
+            <span className="hidden md:inline">
+              전문가와 <span className="text-blue-600">다이렉트</span>로 연결하세요
+            </span>
           </h1>
-          <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed">
-            문의하신 내용은 기술지원 팀으로 즉시 전송되며,<br className="hidden md:block" /> 
-            담당 엔지니어가 확인 후 신속하게 회신해 드립니다.
+          <p className="text-gray-500 text-lg md:text-xl max-w-2xl mx-auto font-medium leading-relaxed max-[380px]:text-base max-[380px]:leading-[0.9] max-[380px]:max-w-none">
+            <span className="max-[380px]:block max-[380px]:whitespace-nowrap">문의하신 내용은 기술지원 팀으로 즉시 전송되며, </span>
+            <br />
+            <span className="max-[380px]:block max-[380px]:whitespace-nowrap">담당 엔지니어가 확인 후 신속하게 회신해 드립니다.</span>
           </p>
         </div>
       </section>
@@ -150,7 +181,7 @@ const ContactPage: React.FC = () => {
               </div>
             )}
 
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-8" noValidate>
               <div className="space-y-3">
                 <label className="text-[12px] font-black text-gray-900 uppercase tracking-widest block ml-1">문의 주체 <span className="text-blue-600">*</span></label>
                 <div className="flex w-full max-w-sm sm:w-fit p-1 bg-gray-100 rounded-xl shadow-inner">
@@ -173,9 +204,9 @@ const ContactPage: React.FC = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
-                  <label className="text-[12px] font-black text-gray-900 uppercase tracking-widest ml-1">
-                    {inquirySource === 'corporate' ? '담당자 명' : '성함'} <span className="text-blue-600">*</span>
-                  </label>
+                <label className="text-[12px] font-black text-gray-900 uppercase tracking-widest ml-1">
+                  {inquirySource === 'corporate' ? '담당자 명' : '성함'} <span className="text-blue-600">*</span>
+                </label>
                   <input 
                     required 
                     name="name" 
@@ -183,12 +214,19 @@ const ContactPage: React.FC = () => {
                     onChange={handleChange} 
                     type="text" 
                     placeholder={inquirySource === 'corporate' ? '담당자 성함' : '성함'} 
+                    id="contact-name"
                     className="w-full px-6 py-4 bg-gray-50 rounded-[1rem] border-2 border-transparent focus:border-blue-600 focus:bg-white outline-none transition-all text-base font-medium placeholder:text-gray-300 shadow-sm" 
                   />
+                  {fieldErrors.name && (
+                    <p className="text-xs text-red-500 font-bold">{fieldErrors.name}</p>
+                  )}
                 </div>
                 <div className="space-y-2">
                   <label className="text-[12px] font-black text-gray-900 uppercase tracking-widest ml-1">이메일 주소 <span className="text-blue-600">*</span></label>
-                  <input required name="email" value={formData.email} onChange={handleChange} type="email" placeholder="example@company.com" className="w-full px-6 py-4 bg-gray-50 rounded-[1rem] border-2 border-transparent focus:border-blue-600 focus:bg-white outline-none transition-all text-base font-medium placeholder:text-gray-300 shadow-sm" />
+                  <input required id="contact-email" name="email" value={formData.email} onChange={handleChange} type="email" placeholder="example@company.com" className="w-full px-6 py-4 bg-gray-50 rounded-[1rem] border-2 border-transparent focus:border-blue-600 focus:bg-white outline-none transition-all text-base font-medium placeholder:text-gray-300 shadow-sm" />
+                  {fieldErrors.email && (
+                    <p className="text-xs text-red-500 font-bold">{fieldErrors.email}</p>
+                  )}
                 </div>
               </div>
 
@@ -196,7 +234,10 @@ const ContactPage: React.FC = () => {
                 {inquirySource === 'corporate' && (
                   <div className="space-y-2">
                     <label className="text-[12px] font-black text-gray-900 uppercase tracking-widest ml-1">회사명 <span className="text-blue-600">*</span></label>
-                    <input required name="company" value={formData.company} onChange={handleChange} type="text" placeholder="소속 회사명" className="w-full px-6 py-4 bg-gray-50 rounded-[1rem] border-2 border-transparent focus:border-blue-600 focus:bg-white outline-none transition-all text-base font-medium placeholder:text-gray-300 shadow-sm" />
+                    <input required id="contact-company" name="company" value={formData.company} onChange={handleChange} type="text" placeholder="소속 회사명" className="w-full px-6 py-4 bg-gray-50 rounded-[1rem] border-2 border-transparent focus:border-blue-600 focus:bg-white outline-none transition-all text-base font-medium placeholder:text-gray-300 shadow-sm" />
+                    {fieldErrors.company && (
+                      <p className="text-xs text-red-500 font-bold">{fieldErrors.company}</p>
+                    )}
                   </div>
                 )}
                 <div className={`space-y-2 ${inquirySource === 'individual' ? 'md:col-span-2' : ''}`}>
@@ -214,23 +255,32 @@ const ContactPage: React.FC = () => {
 
               <div className="space-y-2">
                 <label className="text-[12px] font-black text-gray-900 uppercase tracking-widest ml-1">제목 <span className="text-blue-600">*</span></label>
-                <input required name="subject" value={formData.subject} onChange={handleChange} type="text" placeholder="문의 제목을 입력하세요" className="w-full px-6 py-4 bg-gray-50 rounded-[1rem] border-2 border-transparent focus:border-blue-600 focus:bg-white outline-none transition-all text-base font-medium placeholder:text-gray-300 shadow-sm" />
+                <input required id="contact-subject" name="subject" value={formData.subject} onChange={handleChange} type="text" placeholder="문의 제목을 입력하세요" className="w-full px-6 py-4 bg-gray-50 rounded-[1rem] border-2 border-transparent focus:border-blue-600 focus:bg-white outline-none transition-all text-base font-medium placeholder:text-gray-300 shadow-sm" />
+                {fieldErrors.subject && (
+                  <p className="text-xs text-red-500 font-bold">{fieldErrors.subject}</p>
+                )}
               </div>
 
               <div className="space-y-2">
                 <label className="text-[12px] font-black text-gray-900 uppercase tracking-widest ml-1">문의 내용 <span className="text-blue-600">*</span></label>
-                <textarea required name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="상세 문의 내용을 남겨주세요." className="w-full px-6 py-5 bg-gray-50 rounded-[1rem] border-2 border-transparent focus:border-blue-600 focus:bg-white outline-none transition-all text-base font-medium resize-none placeholder:text-gray-300 leading-relaxed shadow-sm" />
+                <textarea required id="contact-message" name="message" value={formData.message} onChange={handleChange} rows={5} placeholder="상세 문의 내용을 남겨주세요." className="w-full px-6 py-5 bg-gray-50 rounded-[1rem] border-2 border-transparent focus:border-blue-600 focus:bg-white outline-none transition-all text-base font-medium resize-none placeholder:text-gray-300 leading-relaxed shadow-sm" />
+                {fieldErrors.message && (
+                  <p className="text-xs text-red-500 font-bold">{fieldErrors.message}</p>
+                )}
               </div>
 
               {errorMessage && (
-                <div className="text-red-500 text-sm font-bold bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+                <div className="text-red-500 text-sm font-bold bg-red-50 border border-red-100 rounded-xl px-4 py-3 max-[370px]:whitespace-nowrap max-[370px]:text-xs max-[370px]:px-3 max-[370px]:py-2 max-[370px]:w-full max-[370px]:max-w-none">
                   {errorMessage}
                 </div>
               )}
 
               <div className="flex items-center gap-4 pt-2">
                 <input id="consent" name="consent" type="checkbox" checked={formData.consent} onChange={handleChange} className="w-5 h-5 rounded border-gray-300 text-blue-600 focus:ring-blue-600 cursor-pointer shadow-sm" />
-                <label htmlFor="consent" className="text-sm text-gray-500 font-bold cursor-pointer select-none">개인정보 수집 및 이용 방침에 동의합니다. <span className="text-blue-600 underline underline-offset-4 ml-1">(필수)</span></label>
+                <label htmlFor="consent" className="text-sm text-gray-500 font-bold cursor-pointer select-none">
+                  <span className="max-[350px]:whitespace-nowrap">개인정보 수집 및 이용 방침에 동의합니다.</span>
+                  <span className="inline max-[350px]:block text-blue-600 underline underline-offset-4 ml-1 max-[350px]:ml-0">(필수)</span>
+                </label>
               </div>
 
               <button type="submit" disabled={isSubmitting} className={`w-full py-5 rounded-[1.2rem] text-white font-black text-xl shadow-2xl transition-all duration-500 flex items-center justify-center gap-3 ${isSubmitting ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 hover:-translate-y-1 shadow-blue-100'}`}>
