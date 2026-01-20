@@ -87,20 +87,24 @@ const FAQPage: React.FC<FAQPageProps> = ({ onNavigate }) => {
             <span className="w-1.5 h-1.5 bg-blue-600 rounded-full" />
             <span className="text-blue-600 font-black tracking-[0.2em] uppercase text-[10px]">Customer Support</span>
           </div>
-          <h1 className="text-4xl md:text-6xl font-black text-gray-900 mb-8 leading-tight">
+          <h1 className="text-4xl md:text-6xl max-[350px]:text-3xl font-black text-gray-900 mb-4 leading-tight whitespace-nowrap">
             무엇을 도와드릴까요?
           </h1>
           
+          <p className="text-gray-500 text-base md:text-lg font-medium mb-4">
+            궁금하신 내용을 입력해주세요
+          </p>
+
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto relative group">
             <input 
               type="text" 
-              placeholder="궁금하신 내용을 입력해 주세요 (예: 배터리 수명, 보안...)"
-              className="w-full px-10 py-6 bg-white rounded-[2rem] shadow-2xl shadow-blue-100 outline-none border-2 border-transparent focus:border-blue-600 transition-all text-lg font-medium"
+              placeholder="예: 배터리 수명, 보안..."
+              className="w-full px-10 pr-16 max-[400px]:pr-20 py-6 bg-white rounded-[2rem] shadow-2xl shadow-blue-100 outline-none border-2 border-transparent focus:border-blue-600 transition-all text-lg max-[400px]:text-base font-medium"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <div className="absolute right-8 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-600 transition-colors">
+            <div className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-blue-600 transition-colors">
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -123,17 +127,27 @@ const FAQPage: React.FC<FAQPageProps> = ({ onNavigate }) => {
             >
               <button 
                 onClick={() => toggleAccordion(faq.id)}
-                className="w-full px-8 py-8 flex items-center justify-between text-left group"
+                className="w-full px-8 py-8 max-[350px]:px-5 flex items-center justify-between text-left group"
               >
-                <div className="flex items-center gap-6">
-                  <span className={`min-w-[56px] h-8 inline-flex items-center justify-center px-3 rounded-lg text-[10px] font-black uppercase tracking-widest ${
+                <div className="flex items-center gap-6 max-[380px]:gap-2 max-[380px]:min-w-0">
+                  <span className={`min-w-[56px] h-8 inline-flex items-center justify-center px-3 rounded-lg text-[10px] font-black uppercase tracking-widest max-[350px]:min-w-[52px] max-[350px]:px-2 max-[350px]:text-[9px] max-[350px]:tracking-[0.2em] max-[350px]:whitespace-nowrap ${
                     faq.category === '기술' ? 'bg-blue-50 text-blue-600' :
                     faq.category === '서비스' ? 'bg-blue-50 text-blue-600' : 'bg-gray-50 text-gray-600'
                   }`}>
                     {faq.category}
                   </span>
-                  <h3 className="text-lg md:text-xl font-black text-gray-900 leading-tight transition-colors group-hover:text-blue-600">
-                    {faq.question}
+                  <h3 className="text-lg md:text-xl max-[420px]:text-sm font-black text-gray-900 leading-tight transition-colors group-hover:text-blue-600 whitespace-normal">
+                    {faq.id === 1 ? (
+                      <>
+                        <span className="faq-q1-desktop">{faq.question}</span>
+                        <span className="faq-q1-mobile">
+                          <span className="faq-q1-line">배터리 수명 예측(SOH)은</span>
+                          <span className="faq-q1-line">어떤 원리로 이루어지나요?</span>
+                        </span>
+                      </>
+                    ) : (
+                      faq.question
+                    )}
                   </h3>
                 </div>
                 <div className={`flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center transition-all duration-500 ${
@@ -174,9 +188,19 @@ const FAQPage: React.FC<FAQPageProps> = ({ onNavigate }) => {
           <div className="absolute -right-20 -top-20 w-80 h-80 bg-white/10 rounded-full blur-3xl transition-transform duration-1000 group-hover:scale-125" />
           
           <div className="relative z-10 text-center lg:text-left">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-6">원하시는 답변을 찾지 못하셨나요?</h2>
-            <p className="text-blue-100 text-lg md:text-xl font-medium opacity-80 max-w-xl">
-              전문가 팀이 신속하게 답변해 드립니다.<br />지금 바로 1:1 문의를 남겨주세요.
+            <h2 className="text-3xl md:text-5xl max-[360px]:text-2xl max-[360px]:leading-tight font-black text-white mb-6">
+              <span className="hidden sm:inline">원하는 답변을 찾지 못하셨나요?</span>
+              <span className="sm:hidden">
+                원하는 답변을
+                <br />
+                찾지 못하셨나요?
+              </span>
+            </h2>
+            <p className="text-blue-100 text-lg md:text-xl font-medium opacity-80 max-w-xl break-keep">
+              <span className="help-first">전문가 팀이 신속하게 답변해 드립니다.</span>
+              <span className="mobile-br-space"> </span>
+              <br className="desktop-br" />
+              <span className="help-second">지금 바로 1:1 문의를 남겨주세요.</span>
             </p>
           </div>
           
@@ -190,6 +214,40 @@ const FAQPage: React.FC<FAQPageProps> = ({ onNavigate }) => {
           </div>
         </div>
       </section>
+
+      <style>{`
+        .mobile-br-space { display: inline; }
+        .desktop-br { display: none; }
+        @media (min-width: 421px) {
+          .mobile-br-space { display: none; }
+          .desktop-br { display: block; }
+        }
+        @media (max-width: 420px) {
+          .help-first {
+            display: block;
+            white-space: nowrap;
+            font-size: 0.875rem;
+          }
+          .help-second {
+            display: block;
+            font-size: 0.875rem;
+          }
+        }
+        .faq-q1-mobile {
+          display: none;
+        }
+        @media (max-width: 420px) {
+          .faq-q1-desktop {
+            display: none;
+          }
+          .faq-q1-mobile {
+            display: inline;
+          }
+          .faq-q1-line {
+            display: block;
+          }
+        }
+      `}</style>
     </div>
   );
 };
