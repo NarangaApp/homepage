@@ -55,9 +55,10 @@ const LocationPage: React.FC = () => {
             <span className="w-1 h-1 bg-blue-400 rounded-full animate-ping" />
             Global Location Hub
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-white mb-16 tracking-tighter leading-tight">
-            어디서든 나랑가를 <br className="md:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300">만나보세요</span>
+          <h1 className="text-5xl md:text-7xl font-black text-white mb-16 tracking-tighter leading-tight text-center w-full flex flex-col items-center">
+            <span className="hero-title-nowrap block text-center">어디서든 나랑가를</span>
+            <span className="hero-title-break" aria-hidden="true" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-blue-400 to-blue-300 block text-center">만나보세요</span>
           </h1>
 
           {/* New High-Visibility Tab Switcher */}
@@ -127,34 +128,40 @@ const LocationPage: React.FC = () => {
 
             {/* Icon Info Cards */}
             <div className="grid grid-cols-1 gap-6">
-              <div className="p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-start gap-8 group hover:bg-white hover:shadow-2xl hover:shadow-blue-100/50 transition-all duration-500">
-                <div className="w-16 h-16 bg-white rounded-3xl shadow-sm flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth={2}/></svg>
+              <div className="p-4 sm:p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-8 group hover:bg-white hover:shadow-2xl hover:shadow-blue-100/50 transition-all duration-500">
+                <div className="flex flex-col items-center gap-3 sm:flex-col sm:items-start sm:gap-4">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-3xl shadow-sm flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                    <svg className="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" strokeWidth={2}/></svg>
+                  </div>
+                  <h4 className="text-xs sm:text-xs font-black text-blue-600 uppercase tracking-[0.2em] sm:tracking-widest">Office Location</h4>
                 </div>
-                <div>
-                  <h4 className="text-xs font-black text-blue-600 uppercase tracking-widest mb-3">Office Location</h4>
-                  <p className="text-gray-900 font-bold text-2xl leading-snug">{loc.address}</p>
-                </div>
+                <p className="text-gray-900 font-black text-lg sm:text-xl md:text-2xl leading-snug sm:leading-tight max-w-[560px] sm:pl-0 text-center sm:text-left">
+                  <span className="hidden sm:inline">
+                    울산광역시 남구 테크노산업로<br />
+                    55번길 10 207호
+                  </span>
+                  <span className="sm:hidden">{loc.address}</span>
+                </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-start gap-8 group hover:bg-white hover:shadow-2xl hover:shadow-blue-100/50 transition-all">
-                  <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" strokeWidth={2.5}/></svg>
+                <div className="p-4 sm:p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-8 group hover:bg-white hover:shadow-2xl hover:shadow-blue-100/50 transition-all">
+                  <div className="flex flex-col items-center gap-3 sm:flex-col sm:items-start sm:gap-4">
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" strokeWidth={2.5}/></svg>
+                    </div>
+                    <h4 className="text-[10px] sm:text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] sm:tracking-widest">Support</h4>
                   </div>
-                  <div>
-                    <h4 className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2">Support</h4>
-                    <p className="text-gray-900 font-black text-lg">{loc.contact}</p>
-                  </div>
+                  <p className="text-gray-900 font-black text-base sm:text-lg md:text-xl whitespace-nowrap sm:pl-0 text-center sm:text-left">{loc.contact}</p>
                 </div>
-                <div className="p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex items-start gap-8 group hover:bg-white hover:shadow-2xl hover:shadow-blue-100/50 transition-all">
-                  <div className="w-14 h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeWidth={2.5}/></svg>
+                <div className="p-4 sm:p-10 bg-gray-50 rounded-[2.5rem] border border-gray-100 flex flex-col items-center gap-3 sm:flex-row sm:items-center sm:gap-8 group hover:bg-white hover:shadow-2xl hover:shadow-blue-100/50 transition-all">
+                  <div className="flex flex-col items-center gap-3 sm:flex-col sm:items-start sm:gap-4">
+                    <div className="w-10 h-10 sm:w-14 sm:h-14 bg-white rounded-2xl shadow-sm flex items-center justify-center text-blue-600 shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-all">
+                      <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" strokeWidth={2.5}/></svg>
+                    </div>
+                    <h4 className="text-[10px] sm:text-[10px] font-black text-blue-600 uppercase tracking-[0.2em] sm:tracking-widest">Official Email</h4>
                   </div>
-                  <div>
-                    <h4 className="text-[10px] font-black text-blue-600 uppercase tracking-widest mb-2">Official Email</h4>
-                    <p className="text-gray-900 font-black text-lg">{loc.email}</p>
-                  </div>
+                  <p className="text-gray-900 font-black text-base sm:text-lg md:text-xl whitespace-nowrap sm:pl-0 text-center sm:text-left">{loc.email}</p>
                 </div>
               </div>
             </div>
@@ -211,6 +218,11 @@ const LocationPage: React.FC = () => {
       </section>
 
       <style>{`
+        .hero-title-break { display: none; }
+        .hero-title-nowrap { white-space: nowrap; }
+        @media (max-width: 360px) {
+          .hero-title-break { display: block; height: 0; }
+        }
         @keyframes slideFadeIn {
           0% { opacity: 0; transform: translateY(20px) scale(0.98); }
           100% { opacity: 1; transform: translateY(0) scale(1); }
