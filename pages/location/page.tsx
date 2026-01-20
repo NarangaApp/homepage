@@ -10,7 +10,7 @@ const LOCATIONS_DETAIL = {
     address: '울산광역시 울주군 웅촌면 곡천동문길32 503호',
     contact: '0507-1363-1853',
     email: 'ceo@naranga.co.kr',
-    bus: '2호선 강남역 12번 출구 (도보 3분)',
+    bus: '웅촌 하차 후 도보 4분',
     parking: '나랑가타워 지하 주차장 이용 (2시간 무료 지원)',
     coords: { lat: 35.4659022768926, lng: 129.209961142058 },
     tag: 'Strategic Hub'
