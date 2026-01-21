@@ -221,7 +221,9 @@ const AwardsSection: React.FC = () => {
                 </svg>
               </div>
               <div className="flex flex-col">
-                <span className="text-white/60 font-bold text-[13px] leading-none">노드에 마우스를 올려 기술 내용을 확인하세요</span>
+                <span className="text-white/60 font-bold text-[13px] leading-none whitespace-nowrap max-[350px]:text-[11px]">
+                  {isMobile ? '노드를 터치하여 기술 내용을 확인하세요' : '노드에 마우스를 올려 기술 내용을 확인하세요'}
+                </span>
               </div>
             </div>
           </div>
