@@ -55,7 +55,7 @@ const GreetingRoutePage: React.FC = () => {
           <div className="mt-32 flex flex-col items-end pr-4">
             <div className="mb-4">
               <img 
-                src="/images/signature.ai" 
+                src="/images/signature-chunghyun-lee.png" 
                 alt="Signature of CEO Chunghyun Lee" 
                 className="w-52 md:w-64 object-contain"
               />
