@@ -119,7 +119,8 @@ const ServiceSection: React.FC = () => {
         })}
       </div>
 
-      {/* Technology Logic Diagram Embed */}
+      {/*
+      Technology Logic Diagram Embed (Spline) disabled to lighten the homepage.
       <div className="mt-28 md:mt-40 pb-24 md:pb-28">
         <div
           ref={diagramRef}
@@ -138,6 +139,7 @@ const ServiceSection: React.FC = () => {
           )}
         </div>
       </div>
+      */}
     </section>
   );
 };
