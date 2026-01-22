@@ -117,8 +117,6 @@ const ProductPageView: React.FC<ProductPageViewProps> = ({ serviceId }) => {
               allowFullScreen
               style={{ transform: 'scale(1.05)', transformOrigin: 'center' }}
             />
-            {/* Prevent Spline from capturing wheel events while remaining visible */}
-            <div className="absolute inset-0 z-10 bg-transparent" aria-hidden="true" />
           </>
         ) : isAI ? (
           <>
