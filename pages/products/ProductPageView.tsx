@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { Suspense, useEffect, useRef } from 'react';
 import { SERVICES } from '../../constants';
 
 export type ProductId = 'hardware' | 'software' | 'ai';
+
+const Spline = React.lazy(() => import('@splinetool/react-spline'));
+const ROTATING_OBJECT_NAMES = ['Spin Group'];
+const ROTATION_SPEED = 0.25;
 
 interface ProductPageViewProps {
   serviceId: ProductId;
@@ -12,6 +16,63 @@ const ProductPageView: React.FC<ProductPageViewProps> = ({ serviceId }) => {
   const isSoftware = serviceId === 'software';
   const isAI = serviceId === 'ai';
   const isHardware = serviceId === 'hardware';
+  const splineAppRef = useRef<any>(null);
+  const splineObjectsRef = useRef<any[]>([]);
+  const cameraRef = useRef<any>(null);
+  const cameraOrbitRef = useRef<{ radius: number; y: number; angle: number; target: { x: number; y: number; z: number } } | null>(null);
+  const rafRef = useRef<number | null>(null);
+  const lastTimeRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    const animate = (time: number) => {
+      if (lastTimeRef.current === null) lastTimeRef.current = time;
+      const deltaSeconds = (time - lastTimeRef.current) / 1000;
+      lastTimeRef.current = time;
+      const objects = splineObjectsRef.current;
+      if (objects.length > 0) {
+        objects.forEach((obj) => {
+          const rotation = obj?.rotation;
+          if (!rotation) return;
+          const nextY = (rotation.y ?? 0) + deltaSeconds * ROTATION_SPEED;
+          if (rotation.isEuler) {
+            rotation.y = nextY;
+            if (obj.updateMatrix) obj.updateMatrix();
+            if (obj.updateMatrixWorld) obj.updateMatrixWorld();
+          } else {
+            obj.rotation = { x: rotation.x ?? 0, y: nextY, z: rotation.z ?? 0 };
+          }
+        });
+        if (splineAppRef.current?.requestRender) {
+          splineAppRef.current.requestRender();
+        }
+      }
+      const camera = cameraRef.current;
+      const orbit = cameraOrbitRef.current;
+      if (camera && orbit) {
+        orbit.angle += deltaSeconds * ROTATION_SPEED;
+        const nextX = Math.cos(orbit.angle) * orbit.radius;
+        const nextZ = Math.sin(orbit.angle) * orbit.radius;
+        if (camera.position) {
+          camera.position.x = nextX;
+          camera.position.z = nextZ;
+          camera.position.y = orbit.y;
+        }
+        if (typeof camera.lookAt === 'function') {
+          camera.lookAt(orbit.target.x, orbit.target.y, orbit.target.z);
+        }
+        if (splineAppRef.current?.requestRender) {
+          splineAppRef.current.requestRender();
+        }
+      }
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    rafRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+      lastTimeRef.current = null;
+    };
+  }, []);
 
   if (!service) return null;
 
@@ -61,14 +122,45 @@ const ProductPageView: React.FC<ProductPageViewProps> = ({ serviceId }) => {
           </>
         ) : isAI ? (
           <>
-            <iframe
-              src="https://my.spline.design/jennyai-yodEOwi9qXgXUTaaNCUImaCt/"
-              title="Naranga AI 3D"
-              className="absolute inset-0 w-full h-full"
-              frameBorder="0"
-              width="100%"
-              height="100%"
-            />
+            <div className="absolute inset-0">
+              <Suspense fallback={<div className="absolute inset-0 bg-black" />}>
+                <Spline
+                  scene="https://prod.spline.design/tOsw3iHGs2Fj7q1U/scene.splinecode"
+                  renderOnDemand={false}
+                  onLoad={(app) => {
+                    splineAppRef.current = app;
+                    const targets: any[] = [];
+                    ROTATING_OBJECT_NAMES.forEach((name) => {
+                      let obj: any = null;
+                      try {
+                        obj = app.findObjectByName(name);
+                      } catch (err) {
+                        obj = null;
+                      }
+                      if (!obj && app?._scene?.getObjectByName) {
+                        obj = app._scene.getObjectByName(name);
+                      }
+                      if (obj) targets.push(obj);
+                    });
+                    splineObjectsRef.current = targets;
+                    const sceneCamera = app?._scene?.activeCamera ?? app?._scene?.getObjectByName?.('Camera');
+                    if (sceneCamera?.position) {
+                      cameraRef.current = sceneCamera;
+                      const x = sceneCamera.position.x ?? 0;
+                      const y = sceneCamera.position.y ?? 0;
+                      const z = sceneCamera.position.z ?? 0;
+                      const radius = Math.hypot(x, z) || 1;
+                      cameraOrbitRef.current = {
+                        radius,
+                        y,
+                        angle: Math.atan2(z, x),
+                        target: { x: 0, y: 0, z: 0 }
+                      };
+                    }
+                  }}
+                />
+              </Suspense>
+            </div>
           </>
         ) : isHardware ? (
           <iframe
