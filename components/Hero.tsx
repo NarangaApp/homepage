@@ -34,8 +34,15 @@ const Hero: React.FC = () => {
             src="https://my.spline.design/nexbotrobotcharacterconcept-QMwdx0JoZmtgvqXdisWBe31s/"
             // src="https://my.spline.design/interactive3dparallaxscene-4a15by3SAzPB979ldns3quOJ/"
             title="Naranga Hero"
-            className="absolute inset-0 w-full h-full"
-            style={{ transformOrigin: 'center' }}
+            className="absolute"
+            style={{
+              width: '120%',
+              height: '120%',
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%) scale(1.05)',
+              transformOrigin: 'center',
+            }}
             frameBorder="0"
             allowFullScreen
           />

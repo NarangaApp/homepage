@@ -112,10 +112,17 @@ const ProductPageView: React.FC<ProductPageViewProps> = ({ serviceId }) => {
             <iframe
               src="https://my.spline.design/infinity-nRoVLsc3U7iMCl4ArwLPPZzz/"
               title="Naranga Software 3D"
-              className="absolute inset-0 w-full h-full"
+              className="absolute"
               frameBorder="0"
               allowFullScreen
-              style={{ transform: 'scale(1.05)', transformOrigin: 'center' }}
+              style={{
+                width: '120%',
+                height: '120%',
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%) scale(1.04)',
+                transformOrigin: 'center',
+              }}
             />
           </>
         ) : isAI ? (
@@ -164,10 +171,17 @@ const ProductPageView: React.FC<ProductPageViewProps> = ({ serviceId }) => {
           <iframe
             src="https://my.spline.design/interactive3dparallaxscene-4a15by3SAzPB979ldns3quOJ/"
             title="Naranga Hardware 3D"
-            className="absolute inset-0 w-full h-full"
+            className="absolute"
             frameBorder="0"
             allowFullScreen
-            style={{ transform: 'scale(1.15)', transformOrigin: 'center' }}
+            style={{
+              width: '116%',
+              height: '116%',
+              left: '50%',
+              top: '50%',
+              transform: 'translate(-50%, -50%) scale(1.04)',
+              transformOrigin: 'center',
+            }}
           />
         ) : (
           <>
